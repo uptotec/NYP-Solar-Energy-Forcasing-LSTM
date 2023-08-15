@@ -7,12 +7,8 @@ function SignIn() {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  useEffect(() => {
-    if (status === 'authenticated') router.push('/');
-  }, [router, status]);
-
   const signInGoogle = async () => {
-    const res = await signIn('google', { callbackUrl: '/auth/create' });
+    const res = await signIn('google', { callbackUrl: '/' });
   };
 
   return (

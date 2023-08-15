@@ -14,7 +14,7 @@ import {
 import { MdMail, MdCall } from 'react-icons/md';
 import { BsLinkedin } from 'react-icons/bs';
 import Image from 'next/image';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 
 type API_DATA = {
   gridPercent: number;
@@ -61,8 +61,11 @@ export default function Home() {
           <p className="text-2xl font-bold">hello, {session?.user.name}</p>
         </div>
         <div className="border" />
-        <p className="py-4 text-justify text-m">here is your farm data</p>
+        <p className="pt-4 pb-2 text-justify text-m">here is your farm data</p>
         <Form onSubmit={getData} />
+        <p className="self-center" onClick={() => signOut()}>
+          logout
+        </p>
       </div>
       <main className="p-4 desktop:w-3/4">
         <div className="mb-4">
